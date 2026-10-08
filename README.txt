@@ -1,2 +1,1 @@
-Daniela 4º ESO V8. Subir el CONTENIDO de esta carpeta a la raíz del repositorio GitHub Pages.
-Cabecera ilustrada nueva, filtros y decoración de notas; se conserva el resto de V7.
+Daniela 4º ESO V9. Infografías A4 ilustradas para Matemáticas, Latín, Inglés y Lengua; Geografía conserva su lámina PNG A4. Alemán sin materiales. Subir el CONTENIDO de esta carpeta a la raíz de GitHub Pages.

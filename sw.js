@@ -1,5 +1,5 @@
-const C='daniela4eso-v8';
-const A=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./ingles.jpg','./mates.jpg','./aleman.jpg','./latin.jpg','./lengua.jpg','./geo.jpg','./agenda.jpg','./daniela_cabecera.jpg'];
+const C='daniela4eso-v10';
+const A=['./','./index.html','./lengua_tema1_infografia_A4.svg','./ingles_tema1_infografia_A4.svg','./latin_tema1_infografia_A4.svg','./mates_tema1_infografia_A4.svg','./geo_tema1_infografia_A4.svg','./manifest.webmanifest','./icon-192.png','./icon-512.png','./ingles.jpg','./mates.jpg','./aleman.jpg','./latin.jpg','./lengua.jpg','./geo.jpg','./agenda.jpg','./daniela_cabecera.jpg'];
 self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(C).then(c=>c.addAll(A)))});
 self.addEventListener('activate',e=>{e.waitUntil(Promise.all([caches.keys().then(k=>Promise.all(k.filter(x=>x!==C).map(x=>caches.delete(x)))),self.clients.claim()]))});
 self.addEventListener('fetch',e=>{if(e.request.mode==='navigate'){e.respondWith(fetch(e.request).catch(()=>caches.match('./index.html')));return}e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request).then(resp=>{let copy=resp.clone();caches.open(C).then(c=>c.put(e.request,copy));return resp})))})
