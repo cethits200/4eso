@@ -1,0 +1,5 @@
+ACTUALIZACIÓN PARCIAL V11 — Daniela 4º ESO
+
+Sube los 7 archivos index.html, sw.js y las cinco imágenes JPG a la RAÍZ del repositorio cethits200/4eso. NO borres los archivos anteriores: PDF, documentos, iconos e imágenes de materias deben permanecer.
+
+Las cinco infografías son ilustraciones aprobadas por el usuario. Algunas fórmulas o textos diminutos de las imágenes generadas pueden tener errores; comprueba los apuntes originales antes de estudiar de ellas.
