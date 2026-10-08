@@ -1,0 +1,3 @@
+Daniela 4º ESO V12 — Actualización ligera.
+Extraer el ZIP y subir SOLO los archivos del interior de Daniela_4ESO_V12 a la raíz del repositorio cethits200/4eso, sobrescribiendo index.html y sw.js. No borrar los documentos y recursos existentes.
+Los JPG son las infografías aprobadas en V11 y se incluyen para asegurar que la actualización funcione aunque no se haya instalado V11.
