@@ -1,2 +1,1 @@
-V12.3 — La hucha del 8. Incluye las correcciones y resúmenes de V12.2.
-Sube index.html, sw.js y hucha_8_cabecera.jpg a la raíz de GitHub. No borres los otros archivos.
+V12.4: Cabecera web sin recorte, Tema 1 completo en Lengua, interfaz interior renovada. Subir index.html y sw.js a la raíz. No borrar los otros archivos.
