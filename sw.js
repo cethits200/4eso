@@ -1,4 +1,4 @@
-const C='daniela4eso-v12-5';
+const C='daniela4eso-v12-6';
 const A=['./','./index.html','./hucha_8_cabecera.jpg','./latin_tema1_infografia_V11.jpg','./ingles_tema1_infografia_V11.jpg','./mates_tema1_infografia_V11.jpg','./lengua_tema1_infografia_V11.jpg','./geo_tema1_infografia_V11.jpg'];
 self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(C).then(c=>c.addAll(A)))});
 self.addEventListener('activate',e=>{e.waitUntil(Promise.all([caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==C).map(k=>caches.delete(k)))),self.clients.claim()]))});

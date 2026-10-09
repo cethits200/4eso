@@ -133,7 +133,16 @@ function subject(k){
  let v=S[k],n=nextExam(k);
  head(v.e+' '+v.n,'4º ESO');
  let imgs={ingles:'ingles.jpg',mates:'mates.jpg',aleman:'aleman.jpg',latin:'latin.jpg',lengua:'lengua.jpg',geo:'geo.jpg'};
- let items=[['📚','Temario',`topics('${k}')`],['📊','Mis notas',`subjectGrades('${k}')`],['📎','Recursos',`resources('${k}')`]];
+ let items=[['📚','Temario',`topics('${k}')`]];
+ // Shortcuts lead to the existing Tema 1 study tools; do not replace or remove any tools.
+ if(k!=='aleman'){
+  let go=k==='geo'?['geoShowSummary()','geoInfographic()','geoWrittenTest()','geoTest()','geoQuick()','geoFlashcards()','geoMistakes()','geoPrepare()']:
+         k==='lengua'?["lenguaSummary('all')","lenguaInfographic('all')","lenguaWritten('all')","lenguaTest('all')","lenguaQuick('all')","lenguaCards('all')","lenguaMistakes('all')","lenguaPrepare('all')"]:
+         [`courseSummary('${k}')`,`courseInfogram('${k}')`,`courseWritten('${k}')`,`courseTest('${k}')`,`courseQuick('${k}')`,`courseCards('${k}')`,`courseMistakes('${k}')`,`coursePrepare('${k}')`];
+  let names=[['📖','Resumen'],['🎨','Infografía'],['✍️','Prueba escrita'],['✅','Test'],['⚡','Repaso rápido'],['🃏','Tarjetas'],['🎯','Mis errores'],['🏆','Preparar examen']];
+  items.push(...names.map((a,i)=>[a[0],a[1],go[i]]));
+ }
+ items.push(['📊','Mis notas',`subjectGrades('${k}')`],['📎','Recursos',`resources('${k}')`]);
  if(k==='ingles')items.push(['🇬🇧','Verbos irregulares','irregular()']);
  app.innerHTML=`<section class="subject-landing" data-subject="${k}">
  <div class="subject-landing-hero" style="background-image:url('${imgs[k]}')"><strong>${v.n}</strong></div>

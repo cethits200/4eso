@@ -1,2 +1,1 @@
-V12.5: Subir index.html y sw.js a la raíz del repositorio. No eliminar los demás archivos.
-Cabecera original completa y nueva pantalla inicial dentro de cada asignatura.
+V12.6: Restaurados accesos directos a las ocho herramientas del Tema 1 en la pantalla de cada asignatura, conservando el nuevo diseño. Subir index.html y sw.js a la raíz de GitHub Pages; no borrar otros archivos.
