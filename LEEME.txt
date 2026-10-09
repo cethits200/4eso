@@ -1,1 +1,1 @@
-Daniela 4 ESO V12.7: sustituir SOLO index.html y sw.js en la raíz de GitHub. No borrar otros archivos. Resumen permanece dentro de Tema 1. En la web recargar Ctrl+F5 una vez tras publicar.
+V12.8: reemplazar index.html y sw.js en la raíz del repositorio. No eliminar imágenes ni PDFs. Cabecera de asignatura sin franja azul; imágenes enteras, especialmente Alemán.

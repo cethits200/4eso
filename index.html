@@ -115,6 +115,16 @@ body{--depth-shadow:0 9px 0 #152b5410,0 15px 25px #173d7821}
 @media(max-width:450px){.subject-landing .subject-landing-grid{gap:10px}.subject-landing .subject-menu-btn{min-height:132px;padding:10px 5px}.subject-landing .subject-menu-btn .subject-3d{font-size:51px}.subject-landing .subject-menu-btn b{font-size:17px}}
 @media(prefers-reduced-motion:reduce){.subject-landing .subject-menu-btn,.subject-landing .subject-3d{transition:none!important}}
 @media print{.subject-landing .subject-menu-btn{box-shadow:none}}
+
+/* V12.8: compact subject headers; image fully visible (especially Alemán). */
+.top.subject-head{height:0!important;min-height:0!important;padding:0!important;margin:0!important;border:0!important;box-shadow:none!important;background:transparent!important;position:relative!important;overflow:visible!important;z-index:8}
+.top.subject-head .topin{height:0!important;min-height:0!important;max-width:800px!important;padding:0!important;position:relative!important;display:block!important}
+.top.subject-head .brand,.top.subject-head h1,.top.subject-head p{display:none!important}
+.top.subject-head #back{position:absolute!important;top:15px;left:15px;z-index:9;background:#103768e8!important;color:white!important;box-shadow:0 3px 12px #001b4280;border:2px solid #ffffffb0;min-width:45px;min-height:42px;font-size:23px;line-height:1}
+.subject-landing .subject-landing-art{height:clamp(200px,60vw,280px)!important;background:none!important;background-color:var(--light)!important;border:3px solid white!important;display:flex;align-items:center;justify-content:center;overflow:hidden!important}
+.subject-landing .subject-landing-art img{width:100%;height:100%;display:block;object-fit:contain!important;object-position:center!important}
+.subject-landing .subject-landing-art::after,.subject-landing .subject-landing-art strong{display:none!important}
+@media(max-width:450px){.subject-landing .subject-landing-art{height:clamp(195px,62vw,260px)!important}}
 </style></head><body><header class="top"><div class="topin"><button id="back" class="back hidden" onclick="goBack()">←</button><div class="brand">📚</div><div><h1 id="title">Daniela 4º ESO</h1><p id="subtitle">Tu espacio de estudio</p></div></div></header><div id="installBar" class="installbar"><button id="installBtn" class="installbtn" onclick="installApp()">📲 Instalar Daniela 4º ESO</button><div id="installHint" class="installhint hidden"></div></div><main class="wrap" id="app"></main><div id="printBar" class="printbar hidden"><button class="printbtn" onclick="window.print()">🖨️ IMPRIMIR</button></div><script>
 const S={ingles:{n:'Inglés',c:'#e11d48',e:'🇬🇧'},mates:{n:'Matemáticas A',c:'#2563eb',e:'➗'},aleman:{n:'Alemán',c:'#eab308',e:'🇩🇪'},latin:{n:'Latín',c:'#8b5cf6',e:'🏛️'},lengua:{n:'Lengua Castellana y Literatura',c:'#ec4899',e:'📚'},geo:{n:'Geografía e Historia',c:'#10b981',e:'🌍'}};
 let exams=JSON.parse(localStorage.getItem('d4_exams')||'[]'), grades=JSON.parse(localStorage.getItem('d4_grades')||'[]');
@@ -126,12 +136,13 @@ function refreshInstall(){if(isStandalone()){installBar.classList.add('hidden');
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;refreshInstall()});window.addEventListener('appinstalled',()=>{deferredPrompt=null;installBar.classList.add('hidden')});
 async function installApp(){if(isStandalone()){installBar.classList.add('hidden');return}if(deferredPrompt){deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;refreshInstall();return}installHint.classList.remove('hidden');installHint.innerHTML=isiOS()?'<b>iPhone/iPad:</b> pulsa Compartir ⤴️ y después <b>Añadir a pantalla de inicio</b>.':'<b>Android/Chrome:</b> abre el menú ⋮ del navegador y pulsa <b>Instalar aplicación</b> o <b>Añadir a pantalla de inicio</b>. Si acabas de actualizar la web, recárgala una vez.';}
 refreshInstall();
-function save(){localStorage.setItem('d4_exams',JSON.stringify(exams));localStorage.setItem('d4_grades',JSON.stringify(grades))} let navStack=[]; function snapshot(){return {t:title.textContent,s:sub.textContent,h:app.innerHTML,p:!printBar.classList.contains('hidden'),i:!installBar.classList.contains('hidden'),b:!back.classList.contains('hidden'),hc:document.querySelector('.top').className}} function head(t,s=''){document.querySelector('.top').classList.remove('home-head','notes-head');if(app.innerHTML)navStack.push(snapshot());title.textContent=t;sub.textContent=s;back.classList.remove('hidden');printBar.classList.remove('hidden');installBar.classList.add('hidden')} function goBack(){let v=navStack.pop();if(!v){goHome();return}document.querySelector('.top').className=v.hc||'top';title.textContent=v.t;sub.textContent=v.s;app.innerHTML=v.h;printBar.classList.toggle('hidden',!v.p);installBar.classList.toggle('hidden',!v.i);back.classList.toggle('hidden',!v.b)} function goHome(){navStack=[];title.textContent='Daniela 4º ESO';sub.textContent='Tu espacio de estudio';back.classList.add('hidden');printBar.classList.add('hidden');refreshInstall();home()}
-function home(){document.querySelector('.top').classList.add('home-head');document.querySelector('.top').classList.remove('notes-head');app.innerHTML=`<div class="grid">${Object.entries(S).map(([k,v],i)=>`<button aria-label="${v.n}" class="tile ${['eng','math','ger','lat','len','geo'][i]}" onclick="subject('${k}')"></button>`).join('')}<button aria-label="Agenda y Notas" class="tile agenda" onclick="hub()"></button></div>`}
+function save(){localStorage.setItem('d4_exams',JSON.stringify(exams));localStorage.setItem('d4_grades',JSON.stringify(grades))} let navStack=[]; function snapshot(){return {t:title.textContent,s:sub.textContent,h:app.innerHTML,p:!printBar.classList.contains('hidden'),i:!installBar.classList.contains('hidden'),b:!back.classList.contains('hidden'),hc:document.querySelector('.top').className}} function head(t,s=''){document.querySelector('.top').classList.remove('home-head','notes-head','subject-head');if(app.innerHTML)navStack.push(snapshot());title.textContent=t;sub.textContent=s;back.classList.remove('hidden');printBar.classList.remove('hidden');installBar.classList.add('hidden')} function goBack(){let v=navStack.pop();if(!v){goHome();return}document.querySelector('.top').className=v.hc||'top';title.textContent=v.t;sub.textContent=v.s;app.innerHTML=v.h;printBar.classList.toggle('hidden',!v.p);installBar.classList.toggle('hidden',!v.i);back.classList.toggle('hidden',!v.b)} function goHome(){navStack=[];title.textContent='Daniela 4º ESO';sub.textContent='Tu espacio de estudio';back.classList.add('hidden');printBar.classList.add('hidden');refreshInstall();home()}
+function home(){document.querySelector('.top').classList.add('home-head');document.querySelector('.top').classList.remove('notes-head','subject-head');app.innerHTML=`<div class="grid">${Object.entries(S).map(([k,v],i)=>`<button aria-label="${v.n}" class="tile ${['eng','math','ger','lat','len','geo'][i]}" onclick="subject('${k}')"></button>`).join('')}<button aria-label="Agenda y Notas" class="tile agenda" onclick="hub()"></button></div>`}
 function nextExam(k){return exams.filter(x=>x.s===k&&new Date(x.d+'T23:59')>=new Date()).sort((a,b)=>a.d.localeCompare(b.d))[0]}
 function subject(k){
  let v=S[k],n=nextExam(k);
  head(v.e+' '+v.n,'4º ESO');
+ document.querySelector('.top').classList.add('subject-head');
  let imgs={ingles:'ingles.jpg',mates:'mates.jpg',aleman:'aleman.jpg',latin:'latin.jpg',lengua:'lengua.jpg',geo:'geo.jpg'};
  let items=[['📚','Temario',`topics('${k}')`]];
  // Tema 1 shortcuts; summary is accessible only inside the selected topic.
@@ -144,8 +155,8 @@ function subject(k){
  }
  items.push(['📊','Mis notas',`subjectGrades('${k}')`],['📎','Recursos',`resources('${k}')`]);
  if(k==='ingles')items.push(['🇬🇧','Verbos irregulares','irregular()']);
- app.innerHTML=`<section class="subject-landing" data-subject="${k}" data-app-version="12.7">
- <div class="subject-landing-hero" style="background-image:url('${imgs[k]}')"><strong>${v.n}</strong></div>
+ app.innerHTML=`<section class="subject-landing" data-subject="${k}" data-app-version="12.8">
+ <div class="subject-landing-hero subject-landing-art"><img src="${imgs[k]}" alt="Ilustración de ${v.n}" loading="eager"></div>
  <div class="subject-landing-exam"><span class="subject-icon">📅</span><div><b>Próximo examen</b><strong>${n?fmt(n.d):'Sin fecha programada'}</strong>${n?`<span>${n.name||'Examen'}</span>`:''}</div></div>
  <div class="subject-landing-grid">${items.map(([emoji,label,fn])=>`<button class="subject-menu-btn" onclick="${fn}" aria-label="${label}"><span class="subject-chevron">›</span><span class="subject-3d" aria-hidden="true">${emoji}</span><b>${label}</b></button>`).join('')}</div></section>`;
 }

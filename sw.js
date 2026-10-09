@@ -1,4 +1,4 @@
-const C='daniela4eso-v12-7';
+const C='daniela4eso-v12-8';
 const A=['./','./index.html'];
 self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(C).then(c=>c.addAll(A)))});
 self.addEventListener('activate',e=>{e.waitUntil(Promise.all([caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('daniela4eso-')&&k!==C).map(k=>caches.delete(k)))),self.clients.claim()]))});
