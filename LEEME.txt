@@ -1,1 +1,1 @@
-V12.8: reemplazar index.html y sw.js en la raíz del repositorio. No eliminar imágenes ni PDFs. Cabecera de asignatura sin franja azul; imágenes enteras, especialmente Alemán.
+V12.9: Sustituir index.html y sw.js en la raíz de GitHub. Conservar todos los JPG y PDF. Cabeceras ilustradas rectangulares a ancho completo y selector de infografías por tema.
