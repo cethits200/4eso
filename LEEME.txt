@@ -1,1 +1,2 @@
-V12.4: Cabecera web sin recorte, Tema 1 completo en Lengua, interfaz interior renovada. Subir index.html y sw.js a la raíz. No borrar los otros archivos.
+V12.5: Subir index.html y sw.js a la raíz del repositorio. No eliminar los demás archivos.
+Cabecera original completa y nueva pantalla inicial dentro de cada asignatura.
