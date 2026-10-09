@@ -1,1 +1,1 @@
-V12.6: Restaurados accesos directos a las ocho herramientas del Tema 1 en la pantalla de cada asignatura, conservando el nuevo diseño. Subir index.html y sw.js a la raíz de GitHub Pages; no borrar otros archivos.
+Daniela 4 ESO V12.7: sustituir SOLO index.html y sw.js en la raíz de GitHub. No borrar otros archivos. Resumen permanece dentro de Tema 1. En la web recargar Ctrl+F5 una vez tras publicar.

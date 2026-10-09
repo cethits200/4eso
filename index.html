@@ -134,17 +134,17 @@ function subject(k){
  head(v.e+' '+v.n,'4º ESO');
  let imgs={ingles:'ingles.jpg',mates:'mates.jpg',aleman:'aleman.jpg',latin:'latin.jpg',lengua:'lengua.jpg',geo:'geo.jpg'};
  let items=[['📚','Temario',`topics('${k}')`]];
- // Shortcuts lead to the existing Tema 1 study tools; do not replace or remove any tools.
+ // Tema 1 shortcuts; summary is accessible only inside the selected topic.
  if(k!=='aleman'){
   let go=k==='geo'?['geoShowSummary()','geoInfographic()','geoWrittenTest()','geoTest()','geoQuick()','geoFlashcards()','geoMistakes()','geoPrepare()']:
          k==='lengua'?["lenguaSummary('all')","lenguaInfographic('all')","lenguaWritten('all')","lenguaTest('all')","lenguaQuick('all')","lenguaCards('all')","lenguaMistakes('all')","lenguaPrepare('all')"]:
          [`courseSummary('${k}')`,`courseInfogram('${k}')`,`courseWritten('${k}')`,`courseTest('${k}')`,`courseQuick('${k}')`,`courseCards('${k}')`,`courseMistakes('${k}')`,`coursePrepare('${k}')`];
   let names=[['📖','Resumen'],['🎨','Infografía'],['✍️','Prueba escrita'],['✅','Test'],['⚡','Repaso rápido'],['🃏','Tarjetas'],['🎯','Mis errores'],['🏆','Preparar examen']];
-  items.push(...names.map((a,i)=>[a[0],a[1],go[i]]));
+  items.push(...names.slice(1).map((a,i)=>[a[0],a[1],go[i+1]]));
  }
  items.push(['📊','Mis notas',`subjectGrades('${k}')`],['📎','Recursos',`resources('${k}')`]);
  if(k==='ingles')items.push(['🇬🇧','Verbos irregulares','irregular()']);
- app.innerHTML=`<section class="subject-landing" data-subject="${k}">
+ app.innerHTML=`<section class="subject-landing" data-subject="${k}" data-app-version="12.7">
  <div class="subject-landing-hero" style="background-image:url('${imgs[k]}')"><strong>${v.n}</strong></div>
  <div class="subject-landing-exam"><span class="subject-icon">📅</span><div><b>Próximo examen</b><strong>${n?fmt(n.d):'Sin fecha programada'}</strong>${n?`<span>${n.name||'Examen'}</span>`:''}</div></div>
  <div class="subject-landing-grid">${items.map(([emoji,label,fn])=>`<button class="subject-menu-btn" onclick="${fn}" aria-label="${label}"><span class="subject-chevron">›</span><span class="subject-3d" aria-hidden="true">${emoji}</span><b>${label}</b></button>`).join('')}</div></section>`;
@@ -331,4 +331,12 @@ courseSummary=function(k){let c=courseData[k];v12Summary(c.title,k==='mates'?V12
 courseBlockSummary=function(id){let [k,c,b]=findBlock(id);let ext=k==='latin'?V12_EXT_LATIN:k==='ingles'?V12_EXT_INGLES:{};v12Summary(b.t,ext[b.id]||b.sum,`courseBlock('${id}')`)};
 lenguaSummary=function(id){let d=lenguaData[id];v12Summary(d.tag+' · '+d.title,'<h1>'+d.title+'</h1>'+(V12_EXT_LENGUA[id]||d.summary),`lenguaEpigraph('${id}')`)};
 
-home();printBar.classList.add('hidden');if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js', {updateViaCache:'none'});</script></body></html>
+home();printBar.classList.add('hidden');if('serviceWorker'in navigator){
+ navigator.serviceWorker.register('./sw.js?v=12.7',{updateViaCache:'none'}).then(reg=>{
+  reg.update().catch(()=>{});
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{
+   const key='daniela-sw-v12-7-reloaded';
+   if(!sessionStorage.getItem(key)){sessionStorage.setItem(key,'1');location.reload();}
+  });
+ }).catch(()=>{});
+}</script></body></html>
