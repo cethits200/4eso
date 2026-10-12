@@ -1,1 +1,1 @@
-V12.9: Sustituir index.html y sw.js en la raíz de GitHub. Conservar todos los JPG y PDF. Cabeceras ilustradas rectangulares a ancho completo y selector de infografías por tema.
+V12.11: corregidos Test, Repaso rápido y Tarjetas de Geografía. Conserva todas las imágenes y PDF de versiones anteriores. Sube index.html y sw.js a la raíz de GitHub.
