@@ -1,1 +1,1 @@
-V12.14: sube index.html, sw.js y latin_tema1_daniela_V12_14.jpg a la raíz del repositorio. Conserva el resto de archivos. Sustituye la infografía ampliada V12.13 por la nueva con Daniela.
+V12.15: sube index.html, sw.js y agenda_notas_hucha_V12_15.jpg a la raíz de GitHub. Mantén todos los demás archivos. Los botones Agenda, Mis notas y La hucha del 8 siguen funcionando sobre la nueva ilustración.
