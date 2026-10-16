@@ -1,1 +1,1 @@
-V12.19: Sustituye únicamente index.html y sw.js en la raíz del repositorio. No borres imágenes, PDFs ni otros archivos. Las seis asignaturas mantienen el mismo menú principal. Temario presenta un botón desplegable por tema; los epígrafes están ocultos inicialmente.
+V12.20: Actualización de infografía de Lengua Tema 2 (Romanticismo), con Daniela y gafas negras. Sube los tres archivos index.html, sw.js y lengua_tema2_romanticismo_V12_20.jpg a la raíz del repositorio. No borres otros archivos.
