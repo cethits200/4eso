@@ -1,1 +1,1 @@
-V12.17: Sube index.html, sw.js y lengua_tema2_romanticismo_V12_17.jpg a la raíz del repositorio. Conserva todos los demás archivos, incluido el PDF del Romanticismo ya subido en V12.16. Lengua muestra solo Tema 1 y Tema 2; los epígrafes están dentro. Infografía solo imagen y tarjetas ilustradas.
+V12.19: Sustituye únicamente index.html y sw.js en la raíz del repositorio. No borres imágenes, PDFs ni otros archivos. Las seis asignaturas mantienen el mismo menú principal. Temario presenta un botón desplegable por tema; los epígrafes están ocultos inicialmente.
