@@ -1,1 +1,3 @@
-V12.15: sube index.html, sw.js y agenda_notas_hucha_V12_15.jpg a la raíz de GitHub. Mantén todos los demás archivos. Los botones Agenda, Mis notas y La hucha del 8 siguen funcionando sobre la nueva ilustración.
+Daniela 4º ESO V12.16 — Tema 2 de Lengua, epígrafe 2.IV Romanticismo.
+Subir los archivos index.html, sw.js y Lengua_2_IV_Romanticismo.pdf a la raíz de GitHub Pages. Conservar todos los archivos existentes (imágenes, PDFs, manifest, etc.).
+El Tema 1 permanece intacto. Las actividades de Lengua ahora permiten elegir Tema 1 o Tema 2.
